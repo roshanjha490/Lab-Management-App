@@ -1,0 +1,131 @@
+.formPage{
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+    position: absolute;
+}
+
+.formExtr1{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.formContent{
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 8px 8px 9px 0px #00000017;
+}
+
+.formHeading{
+    width: 100%;
+    height: 75px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.formHeading h2{
+    font-size: 28px;
+    color: black;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: block;
+}
+
+.formInputs{
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1); */
+}
+
+.example-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 5%;
+    flex-direction: column;
+  }
+  
+  .example-container input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #0000003b;
+    outline: none;
+    color: #717171;
+    border-radius: 3px;
+    height: 45px;
+    /* margin-bottom: 5%; */
+  }
+
+.submitBx{
+    width: 100%;
+    height: 50px;
+}  
+
+
+button{
+    cursor: pointer;
+    width: 100%;
+    color: #eeeeee;
+    outline: none;
+    height: 45px;
+    background: #1e272e;
+}
+
+
+
+.extr3{
+    position: relative;
+}
+
+.seenIcn{
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.seenIcn i{
+    cursor: pointer;
+}
+
+.your-class::-webkit-input-placeholder {
+    color: red;
+ }
+
+ .nne{
+     display: none;
+ }
+
+
+
+ @media (max-width: 320.98px) {
+
+.formContent{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    padding: 5% 0 5% 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 8px 8px 9px 0px #00000017;
+}
+
+ }

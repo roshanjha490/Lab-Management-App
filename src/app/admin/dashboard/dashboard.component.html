@@ -1,0 +1,144 @@
+<div class="full-body">
+    <div class="contentheading">
+        <div class="row">
+            <div class="col-10 extr1 heading1">
+                <h6>DashBoard / <small>Control Panel</small></h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="container nav2">
+        <div class="row">
+            <div class="mb-4 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                <div class="toRepair  p-3" (click)="gotoRepair()">
+                    <div class="row">
+                        <div class="col-10 p-0">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <h2>{{extrRepairLength}}</h2>
+                                </div>
+                                <div class="col-12 p-0">
+                                    <h5>Repairs</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 extr1 p-0">
+                            <i class="material-icons">
+                                build
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                <div class="managelabs  p-3" (click)="gotoMngLab()">
+                    <div class="row">
+                        <div class="col-10 p-0">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <h2>{{labNumber}}</h2>
+                                </div>
+                                <div class="col-12 p-0">
+                                    <h5>Manage Labs</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 extr1 p-0">
+                            <i class="material-icons">
+                                account_balance_wallet
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                <div class="managesystems  p-3" (click)="gotoMngSystm()">
+                    <div class="row">
+                        <div class="col-10 p-0">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <h2>{{systemNo}}</h2>
+                                </div>
+                                <div class="col-12 p-0">
+                                    <h5>Manage Systems</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 extr1 p-0">
+                            <i class="material-icons">
+                                video_label
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                <div class="notification  p-3" (click)="gotoNotification()">
+                    <div class="row">
+                        <div class="col-10 p-0">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <h2>{{messageNumber}}</h2>
+                                </div>
+                                <div class="col-12 p-0">
+                                    <h5>Notifications</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 extr1 p-0">
+                            <i class="material-icons">
+                                notifications_active
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="softwareManage container">
+
+        <div class="searchheading container">
+            <div class="row extr1">
+                <mat-tab-group mat-align-tabs="center" class="w-100">
+                    <mat-tab label="Search Software">
+                        <div class="input-group w-100 h-auto my-3">
+                            <input type="search" placeholder="Search Software" [(ngModel)]="searchTerm">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    id="button-addon2">Search</button>
+                            </div>
+                        </div>
+
+                    </mat-tab>
+                    <mat-tab label="Add Software">
+                        <div class="input-group w-100 h-auto my-3">
+                            <input type="search" placeholder="Software Name" #softwareName>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" (click)="addSoftware(softwareName)"
+                                    type="button" id="button-addon2">Add</button>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div *ngFor="let item of items | filter : searchTerm;"
+                class="mb-4 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+
+
+                <div class="softwareContent extr1" [routerLink]="[item.Name]"
+                    [style.background-color]="item.backgroundColor">
+                    <h5>
+                        <h5 class="extr1 m-1">{{item.Name}}</h5>
+                        <small class="extr1">Total System: {{item.totalSystem}}</small>
+                    </h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

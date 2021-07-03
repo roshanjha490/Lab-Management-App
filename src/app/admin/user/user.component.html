@@ -1,0 +1,244 @@
+<div class="full-body">
+    <div class="contentheading">
+        <div class="row">
+            <div class="col-9 extr1 heading1">
+                <h6>Manage Profiles</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchheading container">
+        <div class="row extr1">
+            <mat-tab-group mat-align-tabs="center" class="w-100">
+                <mat-tab label="Search User">
+                    <div class="input-group p-3 mb-3">
+                        <input type="search" placeholder="Search System" [(ngModel)]="searchTerm">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Add User">
+
+                    <form #userform="ngForm" *ngIf="activeUser.ID == 0">
+
+                        <div class="p-3 mb-3 row">
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+                                <mat-form-field class="example-full-width w-100">
+                                    <input required matInput placeholder="User ID"
+                                        [class.is-invalid]="user_id.invalid && user_id.touched" name="user_id"
+                                        [(ngModel)]="userId" #user_id="ngModel">
+                                </mat-form-field>
+
+                                <small [class.d-none]="user_id.valid || user_id.untouched" class="text-danger">User ID
+                                    is
+                                    Required</small>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                <mat-form-field class="example-full-width w-100">
+                                    <input required matInput placeholder="User Name"
+                                        [class.is-invalid]="user_name.invalid && user_name.touched" name="user_name"
+                                        [(ngModel)]="userName" #user_name="ngModel">
+                                </mat-form-field>
+
+                                <small [class.d-none]="user_name.valid || user_name.untouched" class="text-danger">User
+                                    Name is
+                                    Required</small>
+
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+                                <mat-form-field class="example-full-width w-100">
+                                    <input matInput type="password" [(ngModel)]="user_password" name="password"
+                                        placeholder="Password" required #password="ngModel"
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                                </mat-form-field>
+
+                                <div *ngIf="password.invalid && (userform.submitted || password.touched)">
+                                    <small class="text-danger" *ngIf="password.errors.required"> Password is required.
+                                    </small>
+                                    <small class="text-danger" *ngIf="password.errors.pattern"> Must contain at least
+                                        one number and one
+                                        uppercase and lowercase letter, and
+                                        at least 8 or more characters.</small>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+                                <mat-form-field class="example-full-width w-100">
+                                    <input matInput type="password" [(ngModel)]="user_confirmpassword"
+                                        name="confirmpassword" placeholder="Confirm Password" required
+                                        #confirmpassword="ngModel" pattern="{{ password.value }}" />
+                                </mat-form-field>
+
+                                <div
+                                    *ngIf=" confirmpassword.invalid && (userform.submitted || confirmpassword.touched)">
+                                    <small class="text-danger" *ngIf="confirmpassword.errors.required"> Confirm password
+                                        is required. </small>
+                                    <small class="text-danger" *ngIf="confirmpassword.errors.pattern"> Password &
+                                        Confirm Password does not
+                                        match.</small>
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                <mat-form-field class="example-full-width w-100">
+                                    <input type="url" required matInput placeholder="Profile Picture"
+                                        [class.is-invalid]="user_profile.invalid && user_profile.touched"
+                                        name="user_profile" [(ngModel)]="userProfile" #user_profile="ngModel">
+                                </mat-form-field>
+                                <div *ngIf=" user_profile.invalid && (userform.submitted || user_profile.touched)">
+                                    <small class="text-danger" *ngIf="user_profile.errors.required">Profile Picture
+                                        is required. </small>
+
+                                    <small [class.d-none]="user_profile.valid || user_profile.untouched"
+                                        class="text-danger"> is
+                                        Required</small>
+                                    <small class="text-danger" *ngIf="user_profile.errors.pattern">Enter a Valid
+                                        Url</small>
+                                </div>
+
+                            </div> -->
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+                                <mat-form-field class="example-full-width w-100">
+                                    <input required matInput placeholder="Job Title"
+                                        [class.is-invalid]="user_job.invalid && user_job.touched" name="user_job"
+                                        [(ngModel)]="userJob" #user_job="ngModel">
+                                </mat-form-field>
+
+                                <small [class.d-none]="user_job.valid || user_job.untouched" class="text-danger">Job
+                                    Title is
+                                    Required</small>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                <mat-form-field class="example-full-width w-100">
+                                    <input type="number" required matInput placeholder="Contact No."
+                                        [class.is-invalid]="usereContact.invalid && usereContact.touched"
+                                        name="usereContact" [(ngModel)]="user_contact" #usereContact="ngModel"
+                                        pattern="">
+                                </mat-form-field>
+
+                                <small [class.d-none]="usereContact.valid || usereContact.untouched"
+                                    class="text-danger">Contact is
+                                    Required</small>
+
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                <mat-form-field class="example-full-width w-100">
+                                    <input type="email" required matInput placeholder="Email-ID"
+                                        [class.is-invalid]="user_email.invalid && user_email.touched" name="user_email"
+                                        [(ngModel)]="userEmail" #user_email="ngModel">
+                                </mat-form-field>
+
+                                <small [class.d-none]="user_email.valid || user_email.untouched"
+                                    class="text-danger">Email-ID is
+                                    Required</small>
+
+                            </div>
+
+                            <div class="col-12 extr1 extr11">
+                                <button mat-button [disabled]="userform.form.invalid" (click)="addUser()">Add New
+                                    System</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <div *ngIf="activeUser.ID !== 0"
+                        class="container w-100 notAllowwed mb-3 d-flex justify-content-center align-items-center">
+                        <h4>Sorry! Only Director can Add Users</h4>
+                    </div>
+
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+
+
+    <div class="allSystem container mt-4">
+        <div class="container p-0">
+            <div class="row">
+                <ng-container *ngFor="let user of users | filter : searchTerm; let i = index">
+
+                    <div *ngIf="user.active == true" class="p-0 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                        <div class="bg-light border border-light profile rounded w-100 h-auto">
+                            <div class="profile_pic_bx  position-relative">
+                                <div class="profil_pic  position-absolute rounded-circle">
+                                    <img src="{{user.profileImg}}" class="w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="user_infrmtn row w-100 h-auto">
+                                <div class="w-100 extr1">
+                                    <h5>{{user.Name}} <small id="cnd1">(Active)</small></h5>
+                                </div>
+
+                                <div class="w-100 px-3">
+                                    <h6 class="my-2">ID: <small>{{user.id}}</small></h6>
+                                    <h6 class="my-2">Job: <small>{{user.job}}</small></h6>
+                                    <h6 class="my-2">Joined at: <small>{{user.joinedIn}}</small></h6>
+                                </div>
+
+                                <div class="w-100 p-3">
+                                    <button [routerLink]="[user.ID]" (click)="openDialog(user.id)" mat-raised-button
+                                        class="w-100 btn1">
+                                        <a>View Full Information</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-container>
+
+
+                <ng-container *ngFor="let user of users | filter : searchTerm; let i = index">
+
+                    <div *ngIf="user.active == false" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                        <div class="bg-light border border-light profile rounded w-100 h-auto">
+                            <div class="profile_pic_bx  position-relative">
+                                <div class="profil_pic  position-absolute rounded-circle">
+                                    <img src="{{user.profileImg}}" class="w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="user_infrmtn row w-100 h-auto">
+                                <div class="w-100 extr1">
+                                    <h5>{{user.Name}} <small id="cnd3">(Not Active)</small></h5>
+                                </div>
+
+                                <div class="w-100 px-3">
+                                    <h6 class="my-2">ID: <small>{{user.id}}</small></h6>
+                                    <h6 class="my-2">Job: <small>{{user.job}}</small></h6>
+                                    <h6 class="my-2">Joined at: <small>{{user.joinedIn}}</small></h6>
+                                </div>
+
+                                <div class="w-100 p-3">
+                                    <button [routerLink]="[user.ID]" (click)="openDialog(user.id)" mat-raised-button
+                                        class="w-100 btn1">
+                                        <a>View Full Information</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-container>
+            </div>
+
+            <div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+            </div>
+
+            <div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<h3>
+    {{systemInformation.Name}}
+</h3>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="extr3 w-100">
+            <h5>Status: <small *ngIf="systemInformation.Condition === 'Working'" id="cnd1">(Working)</small> <small
+                    *ngIf="systemInformation.Condition === 'Not Working'" id="cnd2">(Not Working)</small> <small
+                    *ngIf="systemInformation.Condition === 'Not In Use'" id="cnd3">(Not In Use)</small></h5>
+        </div>
+
+        <div class="extr3 w-100">
+            <h5>Lab: <small> {{systemInformation.Lab}}</small></h5>
+        </div>
+
+        <div class="extr3 w-100">
+            <h5>Softwares: <small *ngFor="let item of softwareName">{{item}},&nbsp;</small></h5>
+        </div>
+
+        <div class="extr3 w-100">
+            <h5>Company: <small> {{systemInformation.Company}}</small></h5>
+        </div>
+
+        <div class="extr3 w-100">
+            <h5>Operating System: <small> {{systemInformation.os}}</small></h5>
+        </div>
+
+        <div class="extr3 w-100">
+            <h5>Hardwares: <small *ngFor="let hrdwr of hardwareName">{{hrdwr}},&nbsp;</small></h5>
+        </div>
+
+        <div class="extr1 w-100 mt-3">
+            <button mat-button [routerLink]="['edit']">Edit System Information</button>
+        </div>
+    </div>
+</div>

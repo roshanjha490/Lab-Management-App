@@ -1,0 +1,31 @@
+<h5>
+    {{userInformation.Name}} <small *ngIf="userInformation.active == true" id="cnd1">(Active)</small> <small
+        *ngIf="userInformation.active == false" id="cnd3">(Not Active)</small>
+</h5>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="extr3 w-100">
+            <h6>ID: {{userInformation.id}}</h6>
+        </div>
+
+        <div class="extr3 w-100">
+            <h6>Job Title: <small> {{userInformation.job}}</small></h6>
+        </div>
+
+        <div class="extr3 w-100">
+            <h6>Joined At: <small> {{userInformation.joinedIn}}</small></h6>
+        </div>
+
+        <div class="extr3 w-100">
+            <h6>Contact No: <small> {{userInformation.contact}}</small></h6>
+        </div>
+
+        <div class="extr3 w-100">
+            <h6>E-Mail Id: <small> {{userInformation.email}}</small></h6>
+        </div>
+        <div class="extr1 w-100 mt-3">
+            <button mat-button [routerLink]="['edit']">Edit User Information</button>
+        </div>
+    </div>
+</div>

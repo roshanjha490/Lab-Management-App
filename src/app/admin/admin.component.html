@@ -1,0 +1,142 @@
+<mat-sidenav-container>
+
+    <mat-sidenav [(mode)]="modeIn" [(opened)]="openIn">
+
+        <div class="logo extr1 w-100">
+            <img src="assets/03.png" class="h-100" alt="">
+        </div>
+        <div class="extr1 w-100 navHead">
+            <h6>Lab Management Panel</h6>
+        </div>
+
+        <ng-container *ngFor="let admin of adminArr">
+            <div *ngIf="admin.active" class="userInfrm">
+                <div class="row p-0">
+                    <div class="col-12 p-0">
+                        <div class="row">
+                            <div class="col-3 p-0 d-flex justify-content-end align-items-center">
+                                <div class="adminIcn">
+                                    <img src="{{admin.profileImg}}" class="w-100" alt="">
+                                </div>
+                            </div>
+                            <div
+                                class="col-9 p-0 px-2 adminName w-100 h-100 d-flex justify-content-start align-items-center">
+                                <div class="dropdown w-auto h-auto">
+                                    <button mat-button class="admin-btn dropdown-toggle" type="button"
+                                        id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <i class="fas fa-circle mr-2"></i> {{admin.Name}}
+                                    </button>
+                                    <div class="dropdown-menu p-0" aria-labelledby="dropdownMenu2">
+                                        <button [routerLink]="['user']"
+                                            class="btn btn-light p-0 pl-3 d-flex justify-content-start align-items-center">Manage
+                                            Profiles</button>
+                                        <button (click)="logOut()"
+                                            class="btn btn-light p-0 pl-3 d-flex justify-content-start align-items-center">Logout</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="navigationBtnLink">
+            <button mat-button [routerLink]="['dashboard']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1"><i class="material-icons">
+                            dashboard
+                        </i></div>
+                    <div class="col-9 p-0 navName extr1">DashBoard</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['manage-labs']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1"><i class="material-icons">
+                            account_balance_wallet
+                        </i></div>
+                    <div class="col-9 p-0 extr1 navName">Manage Labs</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['manage-computers']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1">
+                        <i class="material-icons">
+                            video_label
+                        </i>
+                    </div>
+                    <div class="col-9 p-0 extr1 navName">Manage System</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['repairs']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1"><i class="material-icons">
+                            build
+                        </i></div>
+                    <div class="col-9 p-0 extr1 navName">Repairs</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['not-in-use']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1">
+                        <i class="material-icons">
+                            not_interested
+                        </i>
+                    </div>
+                    <div class="col-9 p-0 extr1 navName">Not In Use</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['manage-software']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1">
+                        <i class="far fa-window-restore"></i>
+                    </div>
+                    <div class="col-9 p-0 extr1 navName">Manage Software</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['manage-hardware']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1">
+                        <i class="material-icons">
+                            devices_other
+                        </i>
+                    </div>
+                    <div class="col-9 p-0 extr1 navName">Manage Hardware</div>
+                </div>
+            </button>
+
+            <button mat-button [routerLink]="['notification']" routerLinkActive="active">
+                <div class="row">
+                    <div class="col-3 p-0 extr1">
+                        <i class="material-icons">
+                            notifications_active
+                        </i>
+                    </div>
+                    <div class="col-9 p-0 extr1 navName">Notification &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            matBadgePosition="below after" matBadge="{{messageNumber}}" matBadgeColor="warn"></span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<div class="navLink" (click)="navrct()">
+    <div class="extr1 w-100 h-100">
+        <i class="material-icons">
+            menu
+        </i>
+    </div>
+</div>

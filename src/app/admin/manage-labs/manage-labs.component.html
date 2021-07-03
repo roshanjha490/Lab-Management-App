@@ -1,0 +1,57 @@
+<div class="contentheading">
+    <div class="row">
+        <div class="col-9 extr1 heading1">
+            <h6>Manage Labs</h6>
+        </div>
+    </div>
+</div>
+
+<div class="full-body">
+    <div class="searchheading container">
+        <div class="row extr1">
+            <mat-tab-group mat-align-tabs="center" class="w-100">
+                <mat-tab label="Search Lab">
+                    <div class="input-group w-100 my-3">
+                        <input type="search" placeholder="Search Lab" [(ngModel)]="searchTerm">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Add Lab">
+                    <div class="input-group w-100 my-3">
+                        <input type="search" placeholder="Add System" #addLab>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" (click)="addNewLab(addLab)" type="button"
+                                id="button-addon2">Add</button>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="container">
+        <div class="summary w-100 pl-5 mb-4">
+            <h6 class="smmryH6">Total No. of Labs: {{labLength}}</h6>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12"
+                *ngFor="let lab of Labs | filter : searchTerm; let i = index">
+                <div class="labName" (click)="goToLab()" [routerLink]="[lab.Name]">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 extr2">
+                            <i class="material-icons">computer</i>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 col-7 extr3">
+                            <h6>{{lab.Name}}</h6>
+                        </div>
+                        <div class="extr2 pcIn col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                            <p>{{lab.totalSystem}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

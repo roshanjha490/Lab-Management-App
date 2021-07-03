@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.row{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.extr1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.extr2{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+button{
+    outline: none !important;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.smmryH6{
+    color: black !important;
+}
+
+
+
+
+

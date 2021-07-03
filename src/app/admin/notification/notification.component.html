@@ -1,0 +1,56 @@
+<div class="contentheading">
+    <div class="row">
+        <div class="col-9 extr1 heading1">
+            <h6>Notifications</h6>
+        </div>
+    </div>
+</div>
+
+<div class="full-body">
+    <div class="container py-3">
+        <div class="totalNotification  w-100">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 my-2 extr1">
+                    <h6 class="smmryH6">Total Notifications: {{messages.length}}</h6>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 my-2 extr1">
+                    <h6 class="smmryH6">Readed Notifications: {{readedMessages.length}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-3 w-100">
+        <div class="messageBox mt-2 mb-2" [ngStyle]="{'background-color': message.seen? 'transparent' : 'white'}"
+            *ngFor="let message of messages; let i = index" (click)="openDialog(rkj,rkj2,i)">
+            <div class="row w-100 h-100">
+                <div class="messageDemo col-xl-8 col-lg-8 col-md-7 col-sm-7 col-0">
+                    <span #rkj>
+                        {{message.message}}
+                    </span>
+                </div>
+                <div class="senderName col-xl-3 col-lg-3 col-md-4 col-sm-4 col-10" #rkj2>
+                    <span>By: {{message.sender}} <small *ngIf="message.seen">(Seen)</small></span>
+                </div>
+                <div class="selectMessage col-xl-1 col-lg-1 col-md-1 col-sm-1 col-2" (click)="deleteMsg(i)">
+                    <button mat-button><i class="material-icons">delete</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+</div>
+
+<div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+    <p>
+        {{textMessage}}
+    </p>
+    <hr>
+    <address class="m-0">{{senderName}}</address>
+</div>

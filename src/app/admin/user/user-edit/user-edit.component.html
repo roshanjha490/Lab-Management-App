@@ -1,0 +1,110 @@
+<h3>
+    {{Activeuser.Name}}
+</h3>
+<hr>
+
+<div class="p-3 mb-3 row">
+
+    <div class="col-12 extr11">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Name" value="{{Activeuser.Name}}" #name>
+        </mat-form-field>
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="User ID" value="{{Activeuser.id}}" #userId>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Img Url" type="url" value="{{Activeuser.profileImg}}" #userImg>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Contact" value="{{Activeuser.contact}}" #userContact>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" value="{{Activeuser.email}}" #userEmail>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Job Title" value="{{Activeuser.job}}" #userJob>
+        </mat-form-field>
+
+    </div>
+
+    <div class="w-100 pt-3 extr11 chnge_psswrd col-12 border-top position-relative">
+        <p class="px-2 position-absolute"> Change Password </p>
+
+        <button #resetPassword type="button" class="btn btn-sm btn-info"
+            (click)="resetPasswrd(resetPassword, resetFrm)">Click on this button to Reset Your
+            Password</button>
+
+        <div class="resetFrm w-100 p-2" #resetFrm>
+            <form>
+                <div class="w-100 inpt_fld position-relative">
+                    <input type="password" name="Current Password" placeholder="Current Password" #CurrentPassword>
+                    <span class="icn_psswrd position-absolute h-100 d-flex justify-content-center align-items-center">
+                        <i class="material-icons" #shwPsswrd_1
+                            (click)="shwpasswrd_1(shwPsswrd_1, hdePsswrd_1, CurrentPassword)">remove_red_eye</i>
+                        <i class="fas fa-eye-slash" style="display: none;" #hdePsswrd_1
+                            (click)="hdepasswrd_1(shwPsswrd_1, hdePsswrd_1, CurrentPassword)"></i>
+                    </span>
+                </div>
+                <div class="w-100 inpt_fld position-relative">
+                    <input type="password" name="New Password" placeholder="New Password" #NewPassword>
+                    <span class="icn_psswrd position-absolute h-100 d-flex justify-content-center align-items-center">
+                        <i class="material-icons" #shwPsswrd_2
+                            (click)="shwpasswrd_2(shwPsswrd_2, hdePsswrd_2, NewPassword)">remove_red_eye</i>
+                        <i class="fas fa-eye-slash" style="display: none;" #hdePsswrd_2
+                            (click)="hdepasswrd_2(shwPsswrd_2, hdePsswrd_2, NewPassword)"></i>
+                    </span>
+                </div>
+                <small #errorPassword style="display: none;" class="text-danger">Must contain at least one number one
+                    uppercase
+                    lowercase letter, and at
+                    least 8 or more
+                    characters</small>
+                <div class="w-100 inpt_fld position-relative">
+                    <input type="password" name="Confirm New Password" placeholder="Confirm New Password"
+                        #ConfirmPassword>
+                    <span class="icn_psswrd position-absolute h-100 d-flex justify-content-center align-items-center">
+                        <i class="material-icons" #shwPsswrd_3
+                            (click)="shwpasswrd_3(shwPsswrd_3, hdePsswrd_3, ConfirmPassword)">remove_red_eye</i>
+                        <i class="fas fa-eye-slash" style="display: none;" #hdePsswrd_3
+                            (click)="hdepasswrd_3(shwPsswrd_3, hdePsswrd_3, ConfirmPassword)"></i>
+                    </span>
+                </div>
+            </form>
+            <div class="w-100">
+                <button type="button" class="btn btn-sm btn-info"
+                    (click)="setPassword(resetPassword, resetFrm, CurrentPassword, NewPassword, ConfirmPassword, errorPassword)">Save
+                    Password</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 extr11">
+        <button mat-button (click)="editSystemInfrm(name, userId, userImg, userContact, userEmail, userJob)">Update
+            System Information!</button>
+    </div>
+
+</div>

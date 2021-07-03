@@ -1,0 +1,79 @@
+<div class="full-body">
+    <div class="contentheading">
+        <div class="row">
+            <div class="col-9 extr1 heading1">
+                <h6>{{labName}}</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchheading container">
+        <div class="row extr1">
+            <div class="input-group p-3 mb-3">
+                <input type="search" placeholder="Search System" [(ngModel)]="searchTerm" (keyup)="onKey($event)" (blur)="onBlue($event)">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="allSystem container mt-4">
+        <div class="summary w-100 mb-2">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-2 extr1 smmry">
+                    <h6>Total Systems: {{labPc}}</h6>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-2 extr1 smmry">
+                    <h6>Working Systems : {{wrkngPc}}</h6>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-2 extr1 smmry">
+                    <h6>Not Working Systems: {{notWrkngPc}}</h6>
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="layout w-100 mb-2 mt-4">
+                    <div class="row justify-content-end">
+                        <div class="w-100 h-100 col-4">
+                            <div class="row">
+                                <div class="col-6 justify-content-center align-self-center">
+                                    <button title="Grid View" mat-button (click)="gridOn()" [ngClass]="isSpecial ? 'active': ''"><i class="material-icons">
+                                        grid_on
+                                        </i></button>
+                                </div>
+                                <div class="col-6 justify-content-center align-self-center">
+                                    <button title="Table View" mat-button (click)="tableOn()" [ngClass]="isSpecial ? '': 'active'"><i class="material-icons">
+                                        grid_off
+                                        </i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        
+        <div class="extr1" [ngSwitch]="layout">
+        
+                    <app-grid-lab *ngSwitchCase="'grid'" class="w-100 h-100"></app-grid-lab>
+        
+                    <app-table-lab *ngSwitchCase="'table'" class="w-100 h-100"></app-table-lab>                
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+<div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+</div>
+
+<div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+    <router-outlet></router-outlet>
+</div>

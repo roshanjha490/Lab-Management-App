@@ -1,0 +1,73 @@
+<div class="full-body">
+    <div class="contentheading">
+        <div class="row">
+            <div class="col-9 extr1 heading1">
+                <h6>Not In Use</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchheading container">
+        <div class="row extr1">
+            <div class="input-group w-100 my-3">
+                <input type="search" placeholder="Search System" [(ngModel)]="searchTerm" (keyup)="onKey($event)"
+                    (blur)="onBlue($event)">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="allSystem container mt-4">
+        <div class="summary w-100 mb-2">
+            <div class="row">
+                <div class=" col-12 mb-2 extr2">
+                    <h6 class="smmryH6">Total Systems Not in Use: {{NotWorkingPc}}</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout w-100 my-3">
+            <div class="row justify-content-end">
+                <div class="w-100 h-100 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="row">
+                        <div class="col-6 justify-content-center align-items-center">
+                            <button title="Grid View" mat-button (click)="gridOn()"
+                                [ngClass]="isSpecial ? 'active': ''"><i class="material-icons">
+                                    grid_on
+                                </i></button>
+                        </div>
+                        <div class="col-6 justify-content-center align-items-center">
+                            <button title="Table View" mat-button (click)="tableOn()"
+                                [ngClass]="isSpecial ? '': 'active'"><i class="material-icons">
+                                    grid_off
+                                </i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="extr1" [ngSwitch]="layout">
+
+            <app-grid-not *ngSwitchCase="'grid'" class="w-100 h-100"></app-grid-not>
+
+            <app-table-not *ngSwitchCase="'table'" class="w-100 h-100"></app-table-not>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+</div>
+
+<div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+    <router-outlet></router-outlet>
+</div>

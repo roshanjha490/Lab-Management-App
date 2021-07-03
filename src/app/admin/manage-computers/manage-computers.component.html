@@ -1,0 +1,202 @@
+<div class="full-body">
+    <div class="contentheading">
+        <div class="row">
+            <div class="col-9 extr1 heading1">
+                <h6>Manage System</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchheading container">
+        <div class="row extr1">
+            <mat-tab-group mat-align-tabs="center" class="w-100">
+                <mat-tab label="Search System">
+
+                    <div class="input-group my-3 h-auto">
+                        <input class="form-control srchInp p-2 h-auto outline-none p-2 border-none"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" type="search"
+                            placeholder="Search System" [(ngModel)]="searchTerm" (keyup)="onKey($event)"
+                            (blur)="onBlue($event)">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary p-2 h-auto" type="button">Search</button>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Add System">
+                    <div class="input-group w-100 my-3">
+                        <form #userform="ngForm">
+
+                            <div class="p-3 mb-3 row">
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+                                    <mat-form-field class="example-full-width">
+                                        <input required matInput placeholder="System Name"
+                                            [class.is-invalid]="systemName.invalid && systemName.touched"
+                                            name="SystemName" [(ngModel)]="newName" #systemName="ngModel">
+                                    </mat-form-field>
+
+                                    <small [class.d-none]="systemName.valid || systemName.untouched"
+                                        class="text-danger">Name is Required</small>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field>
+                                        <mat-label>Select Status</mat-label>
+                                        <mat-select required [(ngModel)]="newStatus"
+                                            [class.is-invalid]="PcStatus.invalid && PcStatus.touched" name="PcStatus"
+                                            #PcStatus="ngModel">
+                                            <mat-option *ngFor="let status of condition" [value]="status.value">
+                                                {{status.value}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+
+                                    <small [class.d-none]="PcStatus.valid || PcStatus.untouched"
+                                        class="text-danger">Select
+                                        Status</small>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field>
+                                        <mat-label>Select Lab</mat-label>
+                                        <mat-select required [(ngModel)]="newLab" name="labName"
+                                            [class.is-invalid]="labName.invalid && labName.touched" #labName="ngModel">
+                                            <mat-option *ngFor="let Lab of Labs" [value]="Lab.Name">
+                                                {{Lab.Name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+
+                                    <small [class.d-none]="labName.valid || labName.untouched"
+                                        class="text-danger">Select
+                                        Lab</small>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field class="example-full-width">
+                                        <input required matInput placeholder="Company Name"
+                                            [class.is-invalid]="companyName.invalid && companyName.touched"
+                                            name="companyName" [(ngModel)]="newCompany" #companyName="ngModel">
+                                    </mat-form-field>
+
+                                    <small [class.d-none]="companyName.valid || companyName.untouched"
+                                        class="text-danger">Company Name is Required</small>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field>
+                                        <mat-label>Hardware Names</mat-label>
+                                        <mat-select required [formControl]="toppings" name="hrdwrName" multiple
+                                            [(ngModel)]="hardwareNames">
+                                            <mat-option *ngFor="let topping of toppingListTwo" [value]="topping.Name">
+                                                {{topping.Name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field>
+                                        <mat-label>Software Names</mat-label>
+                                        <mat-select required [formControl]="toppings" name="softwareName" multiple
+                                            [(ngModel)]="softwareNames">
+                                            <mat-option *ngFor="let topping of toppingList" [value]="topping.Name">
+                                                {{topping.Name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 extr11">
+
+                                    <mat-form-field>
+                                        <mat-label>Select Operating System</mat-label>
+                                        <mat-select required [(ngModel)]="newOs" name="osName"
+                                            [class.is-invalid]="osName.invalid && osName.touched" #osName="ngModel">
+                                            <mat-option *ngFor="let os of conditiontwo" [value]="os.value">
+                                                {{os.value}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+
+                                    <small [class.d-none]="osName.valid || osName.untouched" class="text-danger">Select
+                                        Operating System</small>
+
+                                </div>
+
+                                <div class="col-12 extr1 extr11">
+                                    <button mat-button [disabled]="userform.form.invalid" (click)="addSystem()">Add New
+                                        System</button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+
+
+    <div class="allSystem container">
+        <div class="summary w-100">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-2 extr1">
+                    <h6>Total Systems: {{totalPc}}</h6>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-2 extr1">
+                    <h6>Working Systems: {{workingPc}}</h6>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-2 extr1">
+                    <h6>Not-Working Systems: {{NotWorkingPc}}</h6>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-2 extr1">
+                    <h6>Not-In-Use Systems: {{NotingUsePc}}</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout w-100 my-3">
+            <div class="row justify-content-end">
+                <div class="w-100 h-100 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="row">
+                        <div class="col-6 justify-content-center align-items-center">
+                            <button title="Grid View" mat-button (click)="gridOn()"
+                                [ngClass]="isSpecial ? 'active': ''"><i class="material-icons">
+                                    grid_on
+                                </i></button>
+                        </div>
+                        <div class="col-6 justify-content-center align-items-center">
+                            <button title="Table View" mat-button (click)="tableOn()"
+                                [ngClass]="isSpecial ? '': 'active'"><i class="material-icons">
+                                    grid_off
+                                </i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="extr1" [ngSwitch]="layout">
+
+            <app-grid-view *ngSwitchCase="'grid'" class="w-100 h-100"></app-grid-view>
+
+            <app-table-view *ngSwitchCase="'table'" class="w-100 h-100"></app-table-view>
+
+        </div>
+    </div>
+</div>

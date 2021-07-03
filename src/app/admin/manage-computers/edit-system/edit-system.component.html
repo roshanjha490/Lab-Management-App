@@ -1,0 +1,89 @@
+<h3>
+    {{system.Name}}
+</h3>
+<hr>
+
+<div class="p-3 mb-3 row">
+
+    <div class="col-12 extr11">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="System Name" value="{{system.Name}}" #name>
+        </mat-form-field>
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field>
+            <mat-label>Select Status</mat-label>
+            <mat-select #status [value]=system.Condition>
+                <mat-option *ngFor="let status of condition" value="{{status.value}}">
+                    {{status.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field>
+            <mat-label>Select Lab</mat-label>
+            <mat-select #lab [value]=system.Lab>
+                <mat-option *ngFor="let Lab of Labs" value="{{Lab.Name}}">
+                    {{Lab.Name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Company Name" value="{{system.Company}}" #company>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field>
+            <mat-label>Select Operating System</mat-label>
+            <mat-select #oprtSystem [value]="system.os">
+                <mat-option *ngFor="let status of conditiontwo" value="{{status.value}}">
+                    {{status.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field>
+            <mat-label>Software Names</mat-label>
+            <mat-select [formControl]="toppings" multiple [(ngModel)]="softwareNames">
+                <mat-option *ngFor="let topping of toppingList" [value]="topping.Name">{{topping.Name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr11">
+
+        <mat-form-field>
+            <mat-label>Hardware Names</mat-label>
+            <mat-select [formControl]="toppingsTwo" multiple [(ngModel)]="hardWareNames">
+                <mat-option *ngFor="let topping of toppingListTwo" [value]="topping.Name">{{topping.Name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div class="col-12 extr1 extr11">
+        <button mat-button
+            (click)="editSystemInfrm(name.value, status.value, lab.value, company.value, oprtSystem.value)">Update
+            System Information!</button>
+    </div>
+
+</div>

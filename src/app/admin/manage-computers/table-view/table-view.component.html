@@ -1,0 +1,28 @@
+<table class="mat-elevation-z8 w-100 h-100 mt-3" id="t01">
+  <tr>
+    <th style="width: 10%;" class="align-items-center justify-content-center">S.no</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Lab</th>
+    <th>Edit</th>
+  </tr>
+
+  <tr *ngFor="let computer of computers | filter : searchTerm; let i = index">
+    <td>{{i+1}}</td>
+    <td>{{computer.Name}} </td>
+    <td>{{computer.Condition}} </td>
+    <td>{{computer.Lab}}</td>
+    <td><button (click)="openDialog()" mat-raised-button class="w-100 btn1" [routerLink]="[computer.id]"> <a>View Full
+          Information</a></button></td>
+  </tr>
+</table>
+
+
+
+
+<div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+</div>
+
+<div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+  <router-outlet></router-outlet>
+</div>

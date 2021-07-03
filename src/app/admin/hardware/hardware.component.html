@@ -1,0 +1,62 @@
+<div class="contentheading">
+    <div class="row">
+        <div class="col-9 extr1 heading1">
+            <h6>Manage Hardware</h6>
+        </div>
+    </div>
+</div>
+
+<div class="full-body">
+    <div class="searchheading container">
+        <div class="row extr1">
+            <mat-tab-group mat-align-tabs="center" class="w-100">
+                <mat-tab label="Search Hardware">
+                    <div class="input-group w-100 my-3">
+                        <input type="search" placeholder="Search Hardware" [(ngModel)]="searchTerm">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Add Hardware">
+                    <div class="input-group w-100 my-3">
+                        <input type="search" placeholder="Add Hardware" #addhardware>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" (click)="addNewhardware(addhardware)"
+                                type="button" id="button-addon2">Add</button>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+
+    <div class="summary w-100 pl-5 mb-4">
+        <h6 class="smmryH6">Total No. of Hardware: {{hardwareLength}}</h6>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12"
+                *ngFor="let hardware of hardwares | filter : searchTerm; let i = index">
+                <div class="labName" [routerLink]="[hardware.Name]">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 extr2">
+                            <i class="material-icons">
+                                devices_other
+                            </i>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 col-7 extr3">
+                            <h6>{{hardware.Name}}</h6>
+                        </div>
+
+                        <div class="pcIn col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                            <p>{{hardware.totalSystem}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

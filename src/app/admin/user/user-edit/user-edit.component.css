@@ -1,0 +1,104 @@
+.extr10 {
+    margin: 10px;
+    padding: 0;
+}
+
+.extr10 label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 20px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.extr10 select {
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    word-wrap: normal;
+}
+
+button{
+    background: #1e272e;
+    color: white;
+    width: 100%;
+    height: 40px;
+}
+
+.btn-info{
+    background: #17a2b8 !important;
+}
+
+.extr10 input{
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    word-wrap: normal;
+}
+
+.example-chip-list {
+    width: 100%;
+}
+
+  .mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.extr11{
+    margin: 10px;
+    padding: 0;
+}
+
+.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+    cursor: pointer;
+    background: white !important;
+}
+
+.chnge_psswrd{
+    border-color: black !important;
+}
+
+.chnge_psswrd p{
+      top: -2%;
+    left: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+}
+
+.resetFrm{
+    display: none;
+}
+
+.resetFrm input[type="password"] {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    padding: 5px;
+}
+
+.resetFrm input[type="text"] {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    padding: 5px;
+}
+
+.resetFrm button{
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 100%;
+}
+
+
+.your-class::-webkit-input-placeholder {
+    color: red;
+ }
+
+ .icn_psswrd{
+     top: 50%;
+     right: 0%;
+     transform: translate(-50%,-50%);
+ }

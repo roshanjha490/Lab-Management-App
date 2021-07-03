@@ -1,0 +1,30 @@
+<div class="row">
+    <ng-container *ngFor="let computer of computers | filter : searchTerm; let i = index"
+        class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+        <div *ngIf="computer.Condition === 'Not In Use'" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="system mt-4">
+                <div class="systemImg">
+                    <img src="assets/02.png" alt="">
+                </div>
+                <div class="systemInfrm p-3">
+                    <h5>{{computer.Name}} <small *ngIf="computer.Condition === 'Working'" id="cnd1">(Working)</small>
+                        <small *ngIf="computer.Condition === 'Not Working'" id="cnd2">(Not Working)</small> <small
+                            *ngIf="computer.Condition === 'Not In Use'" id="cnd3">(Not In Use)</small></h5>
+                    <h6>Lab: {{computer.Lab}}</h6>
+                    <div class="extr1 mt-2">
+                        <button (click)="openDialog()" mat-raised-button class="w-100 btn1"
+                            [routerLink]="[computer.id]"> <a>View Full Information</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+
+<div [ngClass]="condition1 ? 'dialogBox' : 'dialogBox2'" (click)="closeDialog()">
+</div>
+
+<div [ngClass]="condition1 ? 'dialogContent' : 'dialogContent2'" class="p-4">
+    <router-outlet></router-outlet>
+</div>

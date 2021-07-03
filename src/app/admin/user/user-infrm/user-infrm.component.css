@@ -1,0 +1,35 @@
+.extr2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.extr3{
+    display: grid;
+    justify-content: left;
+    align-items: center;
+}
+
+
+#cnd3{
+    color: gray;
+    /* font-weight: 800; */
+}
+
+#cnd1{
+    color: green;
+    /* font-weight: 800; */
+}
+
+#cnd2{
+    color: red;
+    /* font-weight: 800; */
+}
+
+button{
+    background: #1e272e;
+    color: white;
+    width: 100%;
+    height: 40px;
+}
+
